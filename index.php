@@ -88,7 +88,17 @@ $posts = $stmt->fetchAll();
 $active_page = 'feed';
 $page_title = "Home Feed";
 require_once 'includes/header.php';
+require_once 'includes/components/grid_pattern.php';
 ?>
+
+<div class="page-bg-grid">
+    <?php render_grid_pattern([
+        'width' => 60,
+        'height' => 60,
+        'strokeDasharray' => '2 4',
+        'class' => 'mask-linear-br'
+    ]); ?>
+</div>
 
 <div class="feed-layout">
     <!-- Sidebar: Mini Profile -->

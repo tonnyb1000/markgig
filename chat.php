@@ -39,9 +39,19 @@ $messages = $stmt->fetchAll();
 
 $page_title = "Chat with " . ($receiver['name'] ?? 'User');
 require_once 'includes/header.php';
+require_once 'includes/components/grid_pattern.php';
 ?>
 
-<div class="messages-layout">
+<div class="page-bg-grid">
+    <?php render_grid_pattern([
+        'width' => 100,
+        'height' => 100,
+        'strokeDasharray' => '2 2',
+        'class' => 'mask-radial'
+    ]); ?>
+</div>
+
+<div class="messages-layout" style="position: relative; z-index: 5;">
     <!-- Sidebar: Threads list (Simplified) -->
     <aside class="messages-sidebar">
         <div class="p-3 border-bottom">

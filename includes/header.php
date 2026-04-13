@@ -14,7 +14,7 @@ require_once __DIR__ . '/functions.php';
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -76,7 +76,7 @@ require_once __DIR__ . '/functions.php';
                         <img src="<?= BASE_URL ?>/uploads/avatars/default.svg" alt="Avatar" class="nav-avatar">
                         <div class="dropdown-menu" id="avatarDropdown">
                             <a href="<?= BASE_URL ?>/profile.php">My Profile</a>
-                            <a href="<?= BASE_URL ?>/admin/dashboard.php">Admin Panel</a>
+                            <a href="<?= BASE_URL ?>/admin.php">Admin Panel</a>
                             <hr>
                             <a href="<?= BASE_URL ?>/auth/logout.php" class="text-danger">Logout</a>
                         </div>

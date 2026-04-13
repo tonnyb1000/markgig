@@ -27,7 +27,7 @@ if ($_SESSION['role'] === 'individual') {
     $stmt->execute([$_SESSION['user_id']]);
     $individual_id = $stmt->fetchColumn();
     
-    $stmt = $pdo->prepare("SELECT id FROM applications WHERE individual_id = ? AND opportunity_id = ?");
+    $stmt = $pdo->prepare("SELECT id, applied_at FROM applications WHERE individual_id = ? AND opportunity_id = ?");
     $stmt->execute([$individual_id, $opp_id]);
     $existing_app = $stmt->fetch();
 }
@@ -77,7 +77,7 @@ require_once 'includes/header.php';
     <aside class="opp-actions">
         <div class="card sticky-top" style="top: 90px;">
             <?php if ($_SESSION['role'] === 'individual'): ?>
-                <?php if (isset($existing_app)): ?>
+                <?php if ($existing_app): ?>
                     <div class="text-center">
                         <div class="chip chip-accent py-2 px-3 mb-3">Application Submitted</div>
                         <p class="text-muted small">You applied for this position on <?= date('M j, Y', strtotime($existing_app['applied_at'])) ?></p>

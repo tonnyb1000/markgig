@@ -38,9 +38,19 @@ $opps = $stmt->fetchAll();
 $active_page = 'jobs';
 $page_title = "Opportunities Board";
 require_once 'includes/header.php';
+require_once 'includes/components/grid_pattern.php';
 ?>
 
-<div class="page-header mb-4">
+<div class="page-bg-grid">
+    <?php render_grid_pattern([
+        'width' => 80,
+        'height' => 80,
+        'strokeDasharray' => '1 4',
+        'class' => 'mask-radial'
+    ]); ?>
+</div>
+
+<div class="page-header mb-4" style="position: relative; z-index: 5;">
     <h1 class="page-title">Opportunity <span class="grad-text">Pipeline</span></h1>
     <p class="text-muted">Find your next internship, job, or project gig.</p>
 </div>

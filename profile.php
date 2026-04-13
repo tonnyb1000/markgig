@@ -27,9 +27,20 @@ if ($u['role'] === 'individual') {
 
 $page_title = ($u['role'] === 'individual' ? $profile['full_name'] : $profile['name']) . " | Profile";
 require_once 'includes/header.php';
+require_once 'includes/components/grid_pattern.php';
 ?>
 
-<div class="profile-banner"></div>
+<div class="profile-banner">
+    <div class="profile-banner-grid">
+        <?php render_grid_pattern([
+            'width' => 40,
+            'height' => 40,
+            'strokeDasharray' => '4 4',
+            'class' => 'mask-radial'
+        ]); ?>
+    </div>
+    <div class="profile-banner-overlay"></div>
+</div>
 <div class="profile-container">
     <div class="card profile-header-card">
         <div class="profile-avatar-wrap">
@@ -79,6 +90,27 @@ require_once 'includes/header.php';
                         <?php endif; endforeach; ?>
                     </div>
                 </div>
+
+                <?php if ($profile['achievements_academic']): ?>
+                    <div class="card mb-4">
+                        <h4 class="grad-text"><i class="fa-solid fa-graduation-cap small me-2"></i> Academic Achievements</h4>
+                        <p class="text-muted"><?= nl2br(htmlspecialchars($profile['achievements_academic'])) ?></p>
+                    </div>
+                <?php endif; ?>
+
+                <?php if ($profile['achievements_field']): ?>
+                    <div class="card mb-4">
+                        <h4 class="grad-text"><i class="fa-solid fa-trophy small me-2"></i> Field Achievements</h4>
+                        <p class="text-muted"><?= nl2br(htmlspecialchars($profile['achievements_field'])) ?></p>
+                    </div>
+                <?php endif; ?>
+
+                <?php if ($profile['research_implementations']): ?>
+                    <div class="card mb-4">
+                        <h4 class="grad-text"><i class="fa-solid fa-microscope small me-1"></i> Research & Projects</h4>
+                        <p class="text-muted"><?= nl2br(htmlspecialchars($profile['research_implementations'])) ?></p>
+                    </div>
+                <?php endif; ?>
             <?php endif; ?>
         </div>
 
